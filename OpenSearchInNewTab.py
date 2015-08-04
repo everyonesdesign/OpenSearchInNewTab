@@ -5,11 +5,11 @@ ALT_NAME = 'Find Results '
 
 class OpenSearchInNewTab(sublime_plugin.EventListener):
 
-	def on_deactivated(self, view):
-		if view.name() == 'Find Results':
-			# set a name with space
-			# so it won't be bothered
-			# during new search
+	# set a bit changed name
+	# so the tab won't be bothered
+	# during new search
+	def on_activated(self, view):
+		if view.name() == DEFAULT_NAME:
 			view.set_name(ALT_NAME)
 
 	# these hooks will help other plugins
