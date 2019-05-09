@@ -42,9 +42,6 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
     def is_search_view(self, view):
         name = view.name()
 
-        print('name ' + name)
-        print('alt_name ' + self.get_alt_name(view))
-
         return (
             name == DEFAULT_NAME or
             name == ALT_NAME_BASE or
