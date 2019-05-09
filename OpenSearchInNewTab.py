@@ -37,7 +37,6 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
 
     def update_view(self, view):
         view.set_name(self.get_alt_name(view))
-        view.set_scratch(True)
 
     def is_search_view(self, view):
         name = view.name()
