@@ -7,6 +7,7 @@ import sublime
 DEFAULT_NAME = 'Find Results'
 ALT_NAME_BASE = 'Find Results '
 MAX_QUERY = 8
+NEXT_LINE_SYMBOL = '↲'
 
 
 def truncate(str):
@@ -32,11 +33,18 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
     def get_alt_name(self, view):
         first_line_coords = view.full_line(sublime.Region(0, 0))
         first_line = view.substr(sublime.Region(*first_line_coords))
-        match = re.search('^Searching \d+ files for "(.*)"$', first_line)
+        match = re.search('^Searching \d+ files for "(.*)("?)$', first_line)
 
         if match:
             query = truncate(match.group(1))
-            return 'Find Results: "' + query + '"'
+            is_multiline = not match.group(2)
+
+            if is_multiline:
+                query = query + ' ' + NEXT_LINE_SYMBOL
+
+            query = truncate(query)
+
+            return DEFAULT_NAME + ': "' + query + '"'
 
         return ALT_NAME_BASE
 
