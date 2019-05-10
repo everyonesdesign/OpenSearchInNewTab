@@ -8,10 +8,11 @@ DEFAULT_NAME = 'Find Results'
 ALT_NAME_BASE = DEFAULT_NAME + ' '
 MAX_QUERY = 16
 NEXT_LINE_SYMBOL = '↲'
+ELLIPSIS = '…'
 
 
 def truncate(str):
-    return str[:MAX_QUERY].rstrip() + '...'if len(str) > MAX_QUERY else str
+    return str[:MAX_QUERY].rstrip() + ELLIPSIS if len(str) > MAX_QUERY else str
 
 
 class OpenSearchInNewTab(sublime_plugin.EventListener):
