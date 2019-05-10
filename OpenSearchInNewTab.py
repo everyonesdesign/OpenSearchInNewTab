@@ -33,7 +33,7 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
     def get_alt_name(self, view):
         first_line_coords = view.full_line(sublime.Region(0, 0))
         first_line = view.substr(sublime.Region(*first_line_coords))
-        match = re.search('^Searching \d+ files for "(.*)("?)$', first_line)
+        match = re.search('^Searching \d+ files for "(.*?)(")?$', first_line)
 
         if match:
             query = truncate(match.group(1))
