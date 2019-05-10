@@ -10,7 +10,7 @@ MAX_QUERY = 8
 
 
 def truncate(str):
-    return str[:MAX_QUERY] + '...'if len(str) > MAX_QUERY else str
+    return str[:MAX_QUERY].rstrip() + '...'if len(str) > MAX_QUERY else str
 
 
 class OpenSearchInNewTab(sublime_plugin.EventListener):
