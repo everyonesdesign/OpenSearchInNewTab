@@ -6,6 +6,11 @@ import sublime
 
 DEFAULT_NAME = 'Find Results'
 ALT_NAME_BASE = 'Find Results '
+MAX_QUERY = 8
+
+
+def truncate(str):
+    return str[:MAX_QUERY] + '...'if len(str) > MAX_QUERY else str
 
 
 class OpenSearchInNewTab(sublime_plugin.EventListener):
@@ -30,8 +35,8 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
         match = re.search('^Searching \d+ files for "(.*)"$', first_line)
 
         if match:
-            query = match.group(1)
-            return ALT_NAME_BASE + 'for "' + query + '"'
+            query = truncate(match.group(1))
+            return 'Find Results: "' + query + '"'
 
         return ALT_NAME_BASE
 
