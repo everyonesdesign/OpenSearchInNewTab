@@ -5,7 +5,7 @@ import sublime_plugin
 import sublime
 
 DEFAULT_NAME = 'Find Results'
-ALT_NAME_BASE = 'Find Results '
+ALT_NAME_BASE = DEFAULT_NAME + ' '
 MAX_QUERY = 8
 NEXT_LINE_SYMBOL = '↲'
 
