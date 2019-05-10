@@ -30,11 +30,11 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
         match = re.search('^Searching \d+ files for "(.*?)(")?$', first_line)
 
         if match:
-            query = truncate(match.group(1))
+            query = match.group(1)
             is_multiline = not match.group(2)
 
             if is_multiline:
-                query = query + ' ' + NEXT_LINE_SYMBOL
+                query = query.rstrip() + ' ' + NEXT_LINE_SYMBOL
 
             query = truncate(query)
 
