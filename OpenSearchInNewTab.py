@@ -24,12 +24,6 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
             t = Timer(.001, self.update_view, (view,))
             t.start()
 
-    # these hooks will help other plugins
-    # to understand that we are in search results file
-    def on_text_command(self, view, command_name, args):
-        if self.is_search_view(view):
-            self.update_view(view)
-
     def get_alt_name(self, view):
         first_line_coords = view.full_line(sublime.Region(0, 0))
         first_line = view.substr(sublime.Region(*first_line_coords))
