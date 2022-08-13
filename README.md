@@ -1,3 +1,9 @@
+# THIS REPO ISN'T ACTIVELY MAINTAINED
+
+Unfortunately, currently I don't have time/resources to maintain the extension. The contributions will be still reviewed.
+
+It seems that currently it doesn't work with Sublime Text 4.
+
 # OpenSearchInNewTab
 
 Plugin for Sublime Text 3 opening each "Find in Folder" result in a new tab
