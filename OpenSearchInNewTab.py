@@ -20,7 +20,7 @@ class OpenSearchInNewTab(sublime_plugin.EventListener):
     # set a bit changed name
     # so the tab won't be bothered
     # during new search
-    def on_activated(self, view):
+    def on_activated_async(self, view):
         if self.is_search_view(view):
             t = Timer(.001, self.update_view, (view,))
             t.start()
